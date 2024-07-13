@@ -5,12 +5,72 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <!--FontAwesomeの導入記述↓-->
+    <script src="https://kit.fontawesome.com/da08226a47.js" crossorigin="anonymous"></script>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-darl bg-dark">
+        <div class="container">
+          <%= link_to "Bookers", root_path %>
+
+          </a>
+
+          <% if user_signed_in? %>
+            <li>
+              <i class="fa-solid fa-house"></i>
+              <%= link_to "Home", root_path %>
+            </li>
+            <li>
+              <i class="fa-solid fa-users"></i>
+              <%= link_to "Users", users_path %>
+            </li>
+            <li>
+              <i class="fa-solid fa-book"></i>
+              <%= link_to "Books", books_path %>
+            </li>
+            <li>
+              <i class="fa-solid fa-right-to-bracket"></i>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+            </li>
+          <% else %>
+            <li>
+              <i class="fa-solid fa-house"></i>
+              <%= link_to "Home", '/' %>
+            </li>
+            <li>
+              <i class="fa-solid fa-link"></i>
+              <%= link_to "About", '/homes/about' %>
+            </li>
+            <li>
+              <i class="fa-solid fa-user-plus"></i>
+              <%= link_to "Sign up", '/users/sign_up' %>
+            </li>
+            <li>
+              <i class="fa-solid fa-sign-in-alt"></i>
+              <%= link_to "Log in", new_user_session_path %>
+            </li>
+          <% end %>
+        </div>
+      </nav>
+    </header>
+
+
     <%= yield %>
+
+    <footer>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
   </body>
 </html>
