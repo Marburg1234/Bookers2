@@ -2,6 +2,26 @@
 
 <h2>User Info</h2>
 
+<tabel class="table">
+  <tbody>
+    <tr></tr>
+    <tr>
+      <th>name</th>
+      <th><%= @user.name %></th>
+    </tr>
+    <tr>
+      <th>introduction</th>
+      <th><%= @user.introduction %></th>
+    </tr>
+  </tbody>
+</tabel>
+
+<div class="row">
+  <%= link_to "編集", edit_user_path(params[:id]) %>
+  <i class="fas fa-user-cog"></i>
+</div>
+
+
 <h2>New Book</h2>
 
 <h2>Books</h2>

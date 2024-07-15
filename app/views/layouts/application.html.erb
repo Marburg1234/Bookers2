@@ -8,7 +8,7 @@
     <!--FontAwesomeの導入記述↓-->
     <script src="https://kit.fontawesome.com/da08226a47.js" crossorigin="anonymous"></script>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -16,14 +16,19 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-darl bg-dark">
         <div class="container">
-          <%= link_to "Bookers", root_path %>
-
+          <a class="navbar-brand" href="/">
+            <span>Bookers</span>
           </a>
+          <button class="navbar-toggler" type="button" data-toggler="collapse"
+          data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+          aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
           <% if user_signed_in? %>
             <li>
               <i class="fa-solid fa-house"></i>
-              <%= link_to "Home", root_path %>
+              <%= link_to "Home", '/' %>
             </li>
             <li>
               <i class="fa-solid fa-users"></i>

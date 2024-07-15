@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
 #とりあえずhome画面に設定した→本当はユーザーの詳細ページに設定しなおす
 def after_sign_in_path_for(resource)
-  root_path
+  books_path
 end
 
 # サインアウト後の遷移先設定→動作済み！
@@ -16,7 +16,7 @@ end
 
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:email])
   end
 
 

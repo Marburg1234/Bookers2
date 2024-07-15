@@ -1,0 +1,15 @@
+<h1>新規投稿ページ！</h1>
+
+<h2>New Book</h2>
+
+<p>Title</p>
+<%= form_with model: @book do |f| %>
+  <%= f.text_field :title %>
+
+<p>Opinion</p>
+
+  <%= f.text_field :opinion %>
+  <br />
+  <%= f.submit "Create Book" %>
+
+<% end %>
