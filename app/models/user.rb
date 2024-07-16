@@ -7,6 +7,11 @@ class User < ApplicationRecord
 # アソシエートする(booksモデルと)
   has_many :books, dependent: :destroy
 
+  #validate機能：空欄や文字制限を設ける
+  validates :name, uniqueness: true, length: { in: 2..20 }
+  validates :introduction, length: { maximum: 50 }
+
+
   # profile写真の保存先を指定する(userモデル経由で保存する)
   has_one_attached :profile_image
 

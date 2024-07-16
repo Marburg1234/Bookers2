@@ -1,4 +1,5 @@
-
+<!--フラッシュメッセージの挿入-->
+<%= flash[:notice] %>
 
 <!--左側の部分 User info と New Book-->
 <div class="container px-5 px-sm-0">
@@ -82,12 +83,16 @@
         <td>
           <%= @book.body %>
         </td>
+        <% if @book.user.id == current_user.id %>
          <td>
           <%= link_to "edit", edit_book_path(@book.id), class: 'btn btn-success' %>
         </td>
         <td>
           <%= link_to "destroy", book_path(@book.id), class: 'btn btn-danger', method: :delete, "data-confirm" => "本当に消しますか?" %>
         </td>
+        <% else %>
+        <td colspan="3"></td>
+        <% end %>
       </tr>
     </tbody>
   </table>

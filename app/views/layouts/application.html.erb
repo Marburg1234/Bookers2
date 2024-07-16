@@ -35,7 +35,7 @@
                 </li>
                 <li>
                   <%= link_to books_path, class: "nav-link text-light" do %>
-                  <i class="fa-solid fa-book"></i>Books
+                  <i class="fa-solid fa-book-open"></i>Books
                   <% end %>
                 </li>
                 <li>
@@ -62,8 +62,8 @@
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to new_user_registration_path, class: 'nav-list text-light' do %>
-                  <i class="fa-solid fa-sign-n-alt"></i>Log in
+                  <%= link_to new_user_session_path, class: 'nav-list text-light' do %>
+                  <i class="fa-solid fa-sign-in-alt"></i>Log in
                   <% end %>
                 </li>
               <% end %>
@@ -74,6 +74,8 @@
     </header>
 
     <main>
+      <%= flash[:notice] %>
+
       <%= yield %>
     </main>
 
