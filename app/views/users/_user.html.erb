@@ -2,18 +2,18 @@
 
 <div class="container px-5 px-sm-0">
   <!--validatesのエラーメッセージ-->
-      <% if @book.errors.any? %>
-        <% if @book.errors.count == 2 %>
+      <% if book.errors.any? %>
+        <% if book.errors.count == 2 %>
           <h3>
-            <%= @book.errors.count %> errors prohibited this obj from being saved:
+            <%= book.errors.count %> errors prohibited this obj from being saved:
           </h3>
       <% else %>
           <h3>
-          <%= @book.errors.count %> error prohibited this obj from being saved:
+          <%= book.errors.count %> error prohibited this obj from being saved:
           </h3>
       <% end %>
         <ul>
-          <% @book.errors.full_messages.each do |message| %>
+          <% book.errors.full_messages.each do |message| %>
           <li><%= message %></li>
           <% end %>
         </ul>
@@ -29,8 +29,8 @@
 
       <h2>User Info</h2>
 
-        <% if @user.profile_image.attached? %>
-          <%= image_tag @user.profile_image, size:"100x100" %>
+        <% if user.profile_image.attached? %>
+          <%= image_tag user.profile_image, size:"100x100" %>
         <% else %>
           <%= image_tag 'no_image', size:"100x100" %>
         <% end %>
@@ -41,16 +41,16 @@
             <tr></tr>
             <tr>
               <th>name</th>
-              <th><%= @user.name %></th>
+              <th><%= user.name %></th>
             </tr>
             <tr>
               <th>introduction</th>
-              <th><%= @user.introduction %></th>
+              <th><%= user.introduction %></th>
             </tr>
           </tbody>
         </table>
 
-        <%= link_to edit_user_path(current_user.id) do %>
+        <%= link_to edit_user_path(user.id) do %>
           <div class="row">
             <button type="button" class="btn btn-outline-secondary btn-block edit_user_179532">
               <i class="fas fa-user-cog" ></i>
@@ -59,11 +59,13 @@
         <% end %>
 
 
-        <h2 class="mt-3">New Book</h2>
+        <h2 class="mt-3">New book</h2>
 
-        <%= form_with model: @book do |f| %>
+
+        <%= form_with model: book.new do |f| %>
           <div class="form-group">
             <label for="boot_title">Title</label>
+
             <br />
             <%= f.text_field :title, class: 'form-control' %>
           </div>
@@ -77,7 +79,6 @@
           <div class="form-group">
             <%= f.submit "Create Book", class: 'btn btn-success' %>
           </div>
-
         <% end %>
 
       </div>
