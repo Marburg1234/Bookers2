@@ -1,5 +1,5 @@
-<!--フラッシュメッセージの挿入-->
-<%= flash[:notice] %>
+
+
 
 <!--左側の部分 User info と New Book-->
 <div class="container px-5 px-sm-0">
@@ -43,13 +43,13 @@
           <div class="form-group">
             <label for="boot_title">Title</label>
             <%= form_with model: @book do |f| %>
-            <%= f.text_field :title %>
+            <%= f.text_field :title, class: 'form-control' %>
           </div>
 
           <div class="form-group">
             <label for="book_opinion">Opinion</label>
             <br />
-            <%= f.text_area :body %>
+            <%= f.text_area :body, class: 'form-control' %>
           </div>
 
             <div class="form-group">
