@@ -9,7 +9,7 @@ class CreateBooks < ActiveRecord::Migration[6.1]
       t.string :title
 
       # 投稿する内容
-      t.text :opinion
+      t.text :body
 
       t.timestamps
     end

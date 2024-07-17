@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # get 'homes#top'
   root to: 'homes#top'
   # Aboutページのルーティングを作成
-  get 'homes/about' => 'homes#about', as: 'about'
+  get 'home/about' => 'homes#about', as: 'about'
 
   resources :users, only: [:edit, :show, :update, :index]
 
